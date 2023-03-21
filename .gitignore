@@ -1,0 +1,5 @@
+# FICHIERS ET DOSSIER IGNORER PAR GIT
+
+server/crashes/
+server-data/cache/
+txData/
