@@ -1,0 +1,2 @@
+C:\Users\Administrator\Desktop\Base_Serveur_RedEM_FR\server-data
+C:\Users\Administrator\Desktop\Base_Serveur_RedEM_FR\server\FXServer.exe +exec server.cfg +set gamename rdr3 +set onesync on +set sv_enforceGameBuild 1491
