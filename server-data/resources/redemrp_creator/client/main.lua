@@ -7,8 +7,7 @@ LoadedComponents = {}
 CreatorCache = {}
 local SpawnedPeds = {}
 MenuData = {}
-TriggerEvent("redemrp_menu_base:getData", function(call)
-    MenuData = call
+TriggerEvent("redemrp_creator_menu:getData", function(call)    MenuData = call
 end)
 
 local MainMenus = {
@@ -204,6 +203,7 @@ AddEventHandler('RedEM:client:ApplySkin', function(SkinData, Target, ClothesData
         print("Loading...")
         -- print(_Target, PlayerPedId())
         FixIssues(_Target, _SkinData)
+        LoadHeight(_Target, _SkinData)
         LoadBody(_Target, _SkinData)
         LoadHead(_Target, _SkinData)
         LoadHair(_Target, _SkinData)
@@ -213,7 +213,6 @@ AddEventHandler('RedEM:client:ApplySkin', function(SkinData, Target, ClothesData
         LoadBodySize(_Target, _SkinData)
         LoadBodyWaist(_Target, _SkinData)
         LoadOverlays(_Target, _SkinData)
-        LoadHeight(_Target, _SkinData)
         TriggerServerEvent("redemrp_respawn:TestDeathStatus")
         SetEntityAlpha(_Target, 255)
         TriggerEvent("rdr_creator:SkinLoaded", _SkinData, _Target, ClothesData)
@@ -265,6 +264,7 @@ RegisterNetEvent('RedEM:client:ApplySkinCommand', function(SkinData, Target, Clo
             print("Loading...")
             -- print(_Target, PlayerPedId())
             FixIssues(_Target, _SkinData)
+            LoadHeight(_Target, _SkinData)
             LoadBody(_Target, _SkinData)
             LoadHead(_Target, _SkinData)
             LoadHair(_Target, _SkinData)
@@ -274,7 +274,6 @@ RegisterNetEvent('RedEM:client:ApplySkinCommand', function(SkinData, Target, Clo
             LoadBodySize(_Target, _SkinData)
             LoadBodyWaist(_Target, _SkinData)
             LoadOverlays(_Target, _SkinData)
-            LoadHeight(_Target, _SkinData)
             TriggerServerEvent("redemrp_respawn:TestDeathStatus")
             SetEntityAlpha(_Target, 255)
             TriggerEvent("rdr_creator:SkinLoaded", _SkinData, _Target, ClothesData)
