@@ -38,7 +38,7 @@ RegisterNetEvent("redemrp_admin:client:Spectate", function(position, player)
         FreezeEntityPosition(PlayerPedId(), true)
         while not DoesEntityExist(GetPlayerPed(GetPlayerFromServerId(player))) do
             Wait(500)
-            print("Waiting for ped to load")
+            print("En attente de chargement de ped")
         end
         TargetPed = GetPlayerPed(GetPlayerFromServerId(player))
         Citizen.InvokeNative(0x423DE3854BB50894, true, TargetPed) -- NetworkSetInSpectatorMode
@@ -151,7 +151,7 @@ RegisterNetEvent("redemrp_admin:client:DeleteVehicleAdmin", function()
             SetEntityAsMissionEntity(closestvehicle, true, true)
             DeleteEntity(closestvehicle)
             DeleteVehicle(closestvehicle)
-            RedEM.Functions.NotifyRight("Deleted vehicle.", 3000)
+            RedEM.Functions.NotifyRight("Véhicule supprimé.", 3000)
         end
     end
 end)

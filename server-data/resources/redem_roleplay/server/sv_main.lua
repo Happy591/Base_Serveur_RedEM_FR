@@ -18,7 +18,7 @@ RedEM.GetInventory = function()
     TriggerEvent("redemrp_inventory:getData", function(ret)
         inv = ret
     end)
-    while inv == nil do Wait(100) ; timeout = timeout + 1 ; if timeout > 100 then print("[redemrp] Getting Inventory timed out...") ; break end end
+    while inv == nil do Wait(100) ; timeout = timeout + 1 ; if timeout > 100 then print("[redemrp] L'obtention de l'inventaire a expiré...") ; break end end
     return inv
 end
 
@@ -50,7 +50,7 @@ RedEM.GetPlayerCB = function(playerId, cb)
     playerId = tonumber(playerId)
     if RedEM.Players then
         if RedEM.Players[playerId] then
-            Citizen.Trace("^2[redemrp] ^0Deprecated event used (redemrp:getPlayerFromId)\n^2[redemrp] ^0Please update your scripts to the new standard available at\n^2[redemrp] ^0https://sinatra.gitbook.io/redemrp/developer-documentation/server-scripting-api/player-class")
+            Citizen.Trace("^2[redemrp] ^0Événement obsolète utilisé (redemrp:getPlayerFromId)\n^2[redemrp] ^0Veuillez mettre à jour vos scripts selon la nouvelle norme disponible sur\n^2[redemrp] ^0https://sinatra.gitbook.io/redemrp/developer-documentation/server-scripting-api/player-class")
             cb(RedEM.Players[playerId])
         else
             cb(nil)
@@ -65,7 +65,7 @@ RegisterServerEvent('playerConnecting')
 AddEventHandler('playerConnecting', function(name, setKickReason)
     local _source = source
     if not RedEM.Functions.GetIdentifier(_source, "steam") then
-        setKickReason("Unable to find requested identifier: 'steam', please relaunch RedM")
+        setKickReason("Impossible de trouver l'identifiant demandé : 'steam', veuillez relancer RedM")
         CancelEvent()
     end
 end)
@@ -229,9 +229,9 @@ AddEventHandler('txAdmin:events:scheduledRestart', function(eventData)
     if eventData.secondsRemaining == 60 then
         CreateThread(function()
             Wait(45000)
-            print("^4[DB]^0 15 seconds before restart... kicking & saving all players!")
+            print("^4[DB]^0 15 secondes avant le redémarrage... kicking & sauvegarde de tous les joueurs !")
             for _, playerId in pairs(GetPlayers()) do
-                DropPlayer(tonumber(playerId), "A scheduled server restart is in progress...")
+                DropPlayer(tonumber(playerId), "Un redémarrage programmé du serveur est en cours...")
             end
         end)
     end
