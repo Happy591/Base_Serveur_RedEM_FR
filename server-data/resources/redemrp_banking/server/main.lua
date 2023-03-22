@@ -7,10 +7,10 @@ RegisterServerEvent('redemrp_banking:server:Withdraw', function(amount)
     if amount ~= nil and amount > 0 and currentBankMoney >= amount then
         user.AddMoney(amount)
         user.RemoveBankMoney(amount)
-        TriggerClientEvent("redem_roleplay:Tip", _source, "Withdrew $"..amount, 3000)
+        TriggerClientEvent("redem_roleplay:Tip", _source, "Retirer $"..amount, 3000)
         TriggerClientEvent("redemrp_banking:client:ReceiveBalance", _source, user.bankmoney, user.GetName())
     else
-        TriggerClientEvent("redem_roleplay:Tip", _source, "Invalid amount!" , 3000)
+        TriggerClientEvent("redem_roleplay:Tip", _source, "Montant invalide !" , 3000)
     end
 end)
 
@@ -21,10 +21,10 @@ RegisterServerEvent('redemrp_banking:server:Deposit', function(amount)
     if amount ~= nil and amount > 0 and currentMoney >= amount then
         user.RemoveMoney(amount)
         user.AddBankMoney(amount)
-        TriggerClientEvent("redem_roleplay:Tip", _source, "Deposited $"..amount, 3000)
+        TriggerClientEvent("redem_roleplay:Tip", _source, "Déposer $"..amount, 3000)
         TriggerClientEvent("redemrp_banking:client:ReceiveBalance", _source, user.bankmoney, user.GetName())
     else
-        TriggerClientEvent("redem_roleplay:Tip", _source, "Invalid amount!" , 3000)
+        TriggerClientEvent("redem_roleplay:Tip", _source, "Montant invalide !" , 3000)
     end
 end)
 
